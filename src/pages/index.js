@@ -1,30 +1,12 @@
 import * as React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import { Seo } from '../components/seo';
+import { Link } from 'gatsby';
+import Layout from '../components/layout';
 
 export default function IndexPage() {
-  const data = useStaticQuery(graphql`
-    query MuQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
-  const meta = data?.site?.siteMetadata ?? {};
-
   return (
-    <>
-      <Seo />
-      <header>
-        <Link to="/">{meta.title}</Link>
-      </header>
-      <main>
-        <h1>Hello frontend Masters!</h1>
-        <Link to="/about">About this site</Link>
-      </main>
-    </>
+    <Layout>
+      <h1>Hello frontend Masters!</h1>
+      <Link to="/about">About this site</Link>
+    </Layout>
   );
 }
